@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        html, body { min-height: 100%;}
+
+        body {
+            padding: 0;
+            margin: 0;
+
+            background: linear-gradient(to right, #16071c 75%, #2eff70 25%);
+
+        }
+
+        h3 {
+            color: #06ff6b;
+            text-align: center;
+            padding-bottom: 1vw;
+            margin-top: 0.5vw;
+        }
+
+        h1 {color: #ffffff; width: 15vw; margin-top: -2vw; margin-right: -4vw}
+
+        .h1 {display: inline-block}
+
+
+        th {
+            color: #06ff6b;
+
+        }
+
+        td {
+            color: #ffffff;
+
+        }
+
+       #py {padding-left: -5vw; margin-top: -1vw; margin-bottom: 2vw}
+
+        .card {width: 55vw; background-color: #263339; border-radius: 15px}
+        .card1 {background-color: #1f212e; margin-right: -0.9vw; margin-left: -0.9vw; border-radius: 15px 15px 0px 0px;}
+
+        #logo1 {
+            width: 15vw;
+            margin-top: 2vw;
+            margin-bottom: 2vw;
+            margin-left: -3vw;
+        }
+        #logo2 {
+            width: 15vw;
+            margin-top: 15vw;
+            margin-right: -3vw;
+            margin-left: 6vw;
+            padding-bottom: 2vw;
+
+        }
+
+        footer {
+    position: fixed;
+    bottom:0;
+    right:5vw;
+}
+
+
+        
+        @media (max-width: 420px) {
+
+            .h1 {display: block}
+
+            #logo1 {
+                width: 30vw;
+                margin-top: 10vw;
+                margin-bottom: 1vw;
+                margin-left: 1vw;
+            }
+
+
+            #logo2 {
+                width: 35vw;
+                margin-top: 15vw;
+                margin-right: 0vw;
+                margin-left: 6vw;
+                padding-bottom: 2vw;
+                float: right;
+            }
+
+            footer{
+                position: static;
+            }
+
+            .card {
+                width: 95%
+            }
+
+            .card1 {
+                margin-right: -3.3vw;
+                margin-left: -3.3vw;
+            }
+
+            body {
+                height: auto;
+
+                background: linear-gradient(to right, #16071c 60%, #2eff70 40%);
+            }
+
+             #py {padding-left: 2vw; margin-top: -1vw; margin-bottom: 10vw}
+
+             h1 {color: #ffffff; width: 5vw; margin-top: -1vw;margin-left: 10vw}
+
+        }
+
+
+
+    </style>
+
+
+    <title>Ranking</title>
+</head>
+<header>
+
+    <svg id="logo1" fill="#2eff70" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="100px" height="100px"><path d="M 24.5 2 C 15.800781 2 14 6.492188 14 9.09375 L 14 14 L 24 14 L 24 15 L 9.09375 15 C 5.792969 15 2 17.601563 2 25 C 2 32.398438 5.792969 35 9.09375 35 L 15 35 L 15 29 C 15 26.800781 16.800781 25 19 25 L 31 25 C 32.699219 25 34 23.699219 34 22 L 34 9.09375 C 34 5.59375 30.699219 2 24.5 2 Z M 20 7 C 21.101563 7 22 7.898438 22 9 C 22 10.101563 21.101563 11 20 11 C 18.898438 11 18 10.101563 18 9 C 18 7.898438 18.898438 7 20 7 Z M 35 15 L 35 22 C 35 24.199219 33.199219 26 31 26 L 19 26 C 17.300781 26 16 27.300781 16 29 L 16 40.90625 C 16 44.40625 19.300781 48 25.5 48 C 34.199219 48 36 43.507813 36 40.90625 L 36 36 L 26 36 L 26 35 L 40.90625 35 C 44.207031 35 48 32.398438 48 25 C 48 17.601563 44.207031 15 40.90625 15 Z M 30 39 C 31.101563 39 32 39.898438 32 41 C 32 42.101563 31.101563 43 30 43 C 28.898438 43 28 42.101563 28 41 C 28 39.898438 28.898438 39 30 39 Z"/></svg>
+
+    <h1 class="h1">Desafio </h1>
+    <h1 class="h1" id="py"> <strong>Python</strong></h1>
+</header>
+<body class="container">
+
+<main>
+    <div class="row d-flex justify-content-center">
+    <div class="card" id="table">
+        <div class="card1">
+<h3>Ranking dos Desafios</h3>
+</div>
+        <table class="table" style="border: #4f4f4f">
+            <tr>
+                <th>Posição</th>
+                <th>Username</th>
+                <th>Pontos</th>
+
+            </tr>
+
+
+            <tr>
+                {% for user in object_list %}
+
+                <td>{{forloop.counter}}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.pontos }}</td>
+
+            </tr>
+            <tr>
+
+            </tr>
+            <tr>
+
+
+                {% endfor %}
+
+            </tr>
+        </table>
+
+    </div>
+    </div>
+</main>
+
+</div>
+
+<footer class="footer navbar-fixed-bottom">
+             <svg id="logo2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 401.86 60.51"><defs><style>.cls-3 {
+                 fill: #120b24;
+             }
+
+             .cls-4 {
+                 fill: #120b24;
+             }</style></defs><g id="Camada_2" data-name="Camada 2"><g id="Camada_1-2" data-name="Camada 1"><path
+                     class="cls-3"
+                     d="M140.75,18.57H137.8L125.63,42h2.77l2.24-4.28,3.17-6.11,4.44-8.66,1-2.18,1,2.18,4.11,8.2,3.15,6.22L149.85,42h2.77Z"/>
+        <path class="cls-3" d="M158.56,39.57v-21H156V42h19.17V39.57Z"/><path class="cls-3"
+                                                                             d="M203.2,35.22V28.89h-14V32.2h10.56c0,4.33-3.61,6.81-9.1,6.81-6.26,0-9.69-2.69-9.69-8.71s2.86-8.77,9.9-8.77c5.81,0,8.5,2.33,8.62,5.13h3.64c0-4.39-3.56-8.44-12.41-8.44s-13.54,4.45-13.54,12.08c0,7.81,5,12,12.94,12,5.73,0,8.47-2,9.78-3.57L200,42h3.18C203.22,41.87,203.2,38.17,203.2,35.22Z"/>
+        <path class="cls-3"
+              d="M231.34,21.8c-2.35-2.44-5.87-3.64-10.85-3.64s-8.41,1.22-10.85,3.78c-2.06,2-3,4.78-3,8.27,0,3.82,1.17,6.68,3.31,8.61,2.29,2.3,5.82,3.49,10.5,3.49s8.59-1.19,10.83-3.6c1.93-2,3-4.77,3-8.53S233.4,23.77,231.34,21.8Zm-3,14.73c-1.76,1.64-4.23,2.45-7.81,2.45-3.28,0-5.61-.72-7.36-2.15s-2.66-3.7-2.66-6.56c0-2.69.75-4.92,2.18-6.27,1.63-1.54,4.14-2.47,7.81-2.47s6.14.89,7.9,2.45c1.5,1.31,2.15,3.64,2.15,6.26S229.82,35.16,228.3,36.53Z"/>
+        <path class="cls-3"
+              d="M258.54,32a5.53,5.53,0,0,0,3.79-2.53,7.45,7.45,0,0,0,1-4.06A6.43,6.43,0,0,0,262,21.17c-1.22-1.58-3.55-2.6-7.1-2.6H238.26V42h5.58l0-18.81h10.47c1.67,0,2.53.36,3,1.1a2.79,2.79,0,0,1,.39,1.58,3.16,3.16,0,0,1-.39,1.58c-.36.6-1.19.93-2.71.93h-8.54v4.5h6.8L259.17,42h6.38Z"/>
+        <path class="cls-3" d="M268.58,18.57V42h5.76V18.57Z"/><path class="cls-3"
+                                                                    d="M276.82,18.57v4.69h10.26V42h5.75V23.26h10.26V18.57Z"/><path
+                         class="cls-3"
+                         d="M327.87,18.57l-6.38,14-6.08-14H305V42h7.6V29.35L318.06,42h6.8l5.55-12.63V42H338V18.57Z"/><path
+                         class="cls-3"
+                         d="M362.26,18.57V32.24c0,2.44-2.27,4.08-6.09,4.08-4,0-6.17-1.58-6.17-4.12V18.57h-8.09V32.2c0,7.1,5.82,10.11,13.93,10.11,8.68,0,14.41-3,14.41-9.36V18.57Z"/>
+        <path class="cls-3"
+              d="M393.21,27.82c-1-.12-3.88-.41-5.7-.57-4.68-.5-6.08-.77-6.08-2s1.1-1.58,5.3-1.58c3,0,4.66.56,5.31,1.43a2,2,0,0,1,.48,1.07h8.59a8.11,8.11,0,0,0-.87-2.62c-1.54-3-5.27-5.37-13.3-5.37-9,0-14,3.19-14,7.36s2.8,6.39,10.38,7.07l5.12.48c4,.42,5,.69,5,1.94s-1,1.79-5.42,1.79c-3.4,0-5.4-.51-6.11-1.37a2.87,2.87,0,0,1-.58-1.25h-8.58a10,10,0,0,0,.56,2.32c1.46,3.28,5.29,5.79,14.14,5.79,9.51,0,14.35-2.68,14.35-7.64C401.86,30.62,399.26,28.48,393.21,27.82Z"/><path
+                         class="cls-4"
+                         d="M48.8,3.76V13.4L27.38,27.14a3.76,3.76,0,0,0,0,6.23L48.8,47.11v9.64A3.75,3.75,0,0,1,43,59.86L1.66,33.37a3.76,3.76,0,0,1,0-6.23L43,.65A3.75,3.75,0,0,1,48.8,3.76Z"/>
+        <path class="cls-4" d="M62.5,16.94,57,13.4V3.76A3.75,3.75,0,0,1,62.82.65l12.54,8Z"/><path class="cls-4"
+                                                                                                  d="M104.11,33.37,62.82,59.86A3.75,3.75,0,0,1,57,56.75V47.11L78.38,33.37a3.75,3.75,0,0,0,0-6.23l-3-1.95,12.87-8.25,15.88,10.2A3.76,3.76,0,0,1,104.11,33.37Z"/><path
+                         class="cls-4"
+                         d="M81.56,17.15,60,31a2,2,0,0,1-3-1.62v-5l11.16-7.16,7.58-4.86a3.07,3.07,0,0,1,3.32,0l2.51,1.61A2,2,0,0,1,81.56,17.15Z"/></g></g></svg>
+</footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+</html>
